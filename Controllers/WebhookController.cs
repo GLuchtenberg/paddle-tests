@@ -45,10 +45,23 @@ namespace integrationPaddle.Controllers
     {
         // POST api/values
         [HttpPost]
-        public IActionResult Post([FromForm] Object dict)
+        public IActionResult Post()
         {
-            // var dict = Request.Form.ToDictionary(x => x.Key, x => x.Value.ToString());
+            var dict = Request.Form.ToDictionary(x => x.Key, x => x.Value.ToString());
+            
+            // if(dict.alert_name === 'payment_succeeded'){
+                
+            // }
+            // if(dict.alert_name === 'payment_succeeded'){
+
+            // }
             return Ok(dict);
+        }
+        public string PaymentSuccess(string type){
+            return "1";
+        }
+        public string PaymentRefunded(string type){
+            return "2";
         }
 //formdata get datas
 //parse formdata aspnetcore
