@@ -46,7 +46,7 @@ namespace integrationPaddle.Controllers
     {
         // POST api/values
         [HttpPost]
-        public IActionResult Post([FromBody] PaddleBody paddle)
+        public IActionResult Post()
         {
             var dict = Request.Form.ToDictionary(x => x.Key, x => x.Value.ToString());
             return Ok(dict);
