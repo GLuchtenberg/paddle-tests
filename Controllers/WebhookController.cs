@@ -46,7 +46,7 @@ namespace integrationPaddle.Controllers
 
         // POST api/values
         [HttpPost]
-        public IActionResult Post([FromBody] PaddleBody paddle)
+        public IActionResult Post([FromBody] Object paddle)
         {
             return Ok(paddle);
         }
