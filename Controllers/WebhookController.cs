@@ -45,21 +45,28 @@ namespace integrationPaddle.Controllers
     [ApiController]
     public class WebhookController : ControllerBase
     {
+        List<Object> responses { get; set; }
+
+        [HttpGet]
+        public IActionResult Get(){
+            return Ok(responses.Last());
+        }
         // POST api/values
         [HttpPost]
         public IActionResult Post()
         {
             // JsonConvert.DeserializeObject<PaddleBody>(
             var dict = Request.Form.ToString();
+            responses.Add(dict);
             JObject obj = JObject.Parse(dict);
             PaddleBody body = obj.ToObject<PaddleBody>();
             // var teste = ObjectFromDictionary<PaddleBody>(dict);
-            
+
             return Ok(body);
         }
         // var dict = Request.Form.ToDictionary(x => x.Key, x => x.Value.ToString());
         private T ObjectFromDictionary<T>(IDictionary<string, string> dict)
-            where T : class 
+            where T : class
         {
             Type type = typeof(T);
             T result = (T)Activator.CreateInstance(type);
@@ -70,13 +77,15 @@ namespace integrationPaddle.Controllers
             return result;
         }
 
-        public string PaymentSuccess(string type){
+        public string PaymentSuccess(string type)
+        {
             return "1";
         }
-        public string PaymentRefunded(string type){
+        public string PaymentRefunded(string type)
+        {
             return "2";
         }
-//formdata get datas
-//parse formdata aspnetcore
+        //formdata get datas
+        //parse formdata aspnetcore
     }
 }
