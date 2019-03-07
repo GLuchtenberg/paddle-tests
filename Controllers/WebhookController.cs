@@ -48,8 +48,9 @@ namespace integrationPaddle.Controllers
         List<Object> responses { get; set; }
 
         [HttpGet]
-        public IActionResult Get(){
-            return Ok(responses.Last());
+        public IActionResult Get()
+        {
+            return Ok(new { respostas = "ok", responses = this.responses });
         }
         // POST api/values
         [HttpPost]
