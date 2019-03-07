@@ -5,39 +5,40 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace integrationPaddle.Controllers
 {
     public class PaddleBody
     {
-        string AlertName { get; set; }
-        string BalanceCurrency { get; set; }
-        string BalanceEarnings { get; set; }
-        string BalanceFee { get; set; }
-        string BalanceGross { get; set; }
-        string BalanceTax { get; set; }
-        string CheckoutId { get; set; }
-        string Country { get; set; }
-        string Coupon { get; set; }
-        string Currency { get; set; }
-        string CustomerName { get; set; }
-        string Earnings { get; set; }
-        string Email { get; set; }
-        string EventTime { get; set; }
-        string Fee { get; set; }
-        string Ip { get; set; }
-        string MarketingConsent { get; set; }
-        string OrderId { get; set; }
-        string Passthrough { get; set; }
-        string PaymentMethod { get; set; }
-        string PaymentTax { get; set; }
-        string ProductId { get; set; }
-        string ProductName { get; set; }
-        string Quantity { get; set; }
-        string ReceiptUrl { get; set; }
-        string SaleGross { get; set; }
-        string UsedPriceOverride { get; set; }
-        string PSignature { get; set; }
+        public string AlertName { get; set; }
+        public string BalanceCurrency { get; set; }
+        public string BalanceEarnings { get; set; }
+        public string BalanceFee { get; set; }
+        public string BalanceGross { get; set; }
+        public string BalanceTax { get; set; }
+        public string CheckoutId { get; set; }
+        public string Country { get; set; }
+        public string Coupon { get; set; }
+        public string Currency { get; set; }
+        public string CustomerName { get; set; }
+        public string Earnings { get; set; }
+        public string Email { get; set; }
+        public string EventTime { get; set; }
+        public string Fee { get; set; }
+        public string Ip { get; set; }
+        public string MarketingConsent { get; set; }
+        public string OrderId { get; set; }
+        public string Passthrough { get; set; }
+        public string PaymentMethod { get; set; }
+        public string PaymentTax { get; set; }
+        public string ProductId { get; set; }
+        public string ProductName { get; set; }
+        public string Quantity { get; set; }
+        public string ReceiptUrl { get; set; }
+        public string SaleGross { get; set; }
+        public string UsedPriceOverride { get; set; }
+        public string PSignature { get; set; }
     }
 
     [Route("api/[controller]")]
@@ -49,10 +50,13 @@ namespace integrationPaddle.Controllers
         public IActionResult Post()
         {
             // JsonConvert.DeserializeObject<PaddleBody>(
-            var dict = Request.Form.ToDictionary(x => x.Key, x => x.Value.ToString());
-            var teste = ObjectFromDictionary<PaddleBody>(dict);
+            var dict = Request.Form;
+            JObject obj = JObject.Parse(dict.ToString());
+            PaddleBody body = obj.ToObject<PaddleBody>();
+            // var dict = Request.Form.ToDictionary(x => x.Key, x => x.Value.ToString());
+            // var teste = ObjectFromDictionary<PaddleBody>(dict);
             
-            return Ok(teste);
+            return Ok(body.AlertName);
         }
         private T ObjectFromDictionary<T>(IDictionary<string, string> dict)
             where T : class 
