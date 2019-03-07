@@ -24,7 +24,7 @@ namespace Qualyteam.Doc.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Payment()
         {
-            return Ok("Hello World!");
+            return Ok("Hello Worlde!");
         }
 
         // [HttpGet("{id:int}")]
