@@ -54,8 +54,8 @@ namespace integrationPaddle.Controllers
             // var teste =JsonConvert.DeserializeObject<PaddleBody>(Request.Body.ToString());
             var meuObject = JsonConvert.DeserializeObject<object>(Request.Body.ToString());
 
-            var meuOvo = JsonConvert.DeserializeObject<PaddleBody>(meuObject.ToString());
-            return Ok(meuOvo);
+            var oMeuDeusPlease = (PaddleBody)meuObject;
+            return Ok(oMeuDeusPlease);
         }
             // var dict = Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(uri.Query);
             // responses.Add(dict);
