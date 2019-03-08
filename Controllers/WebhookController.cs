@@ -48,16 +48,16 @@ namespace integrationPaddle.Controllers
         List<Object> responses { get; set; }
         // POST api/values
         [HttpPost]
-        public IActionResult Post([FromForm] PaddleBody body)
+        public IActionResult Post()
         {
-            // JsonConvert.DeserializeObject<PaddleBody>(
             // var dict = Request.Form.ToString();
+            var dict = Request.Body;
             // responses.Add(dict);
             // SortedDictionary<string, dynamic> padStuff = new SortedDictionary<string, dynamic>();
             // JObject obj = JObject.Parse(dict);
             // PaddleBody body = obj.ToObject<PaddleBody>();
             // var teste = ObjectFromDictionary<PaddleBody>(dict);
-            return Ok(body);
+            return Ok(dict);
         }
         // var dict = Request.Form.ToDictionary(x => x.Key, x => x.Value.ToString());
         // private T ObjectFromDictionary<T>(IDictionary<string, string> dict)
