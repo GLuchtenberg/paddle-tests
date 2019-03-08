@@ -12,35 +12,34 @@ namespace integrationPaddle.Controllers
 {
     public class PaddleBody
     {
-        string alert_name { get; set; }
-        // string AlertName { get; set; }
-        // string BalanceCurrency { get; set; }
-        // string BalanceEarnings { get; set; }
-        // string BalanceFee { get; set; }
-        // string BalanceGross { get; set; }
-        // string BalanceTax { get; set; }
-        // string CheckoutId { get; set; }
-        // string Country { get; set; }
-        // string Coupon { get; set; }
-        // string Currency { get; set; }
-        // string CustomerName { get; set; }
-        // string Earnings { get; set; }
-        // string Email { get; set; }
-        // string EventTime { get; set; }
-        // string Fee { get; set; }
-        // string Ip { get; set; }
-        // string MarketingConsent { get; set; }
-        // string OrderId { get; set; }
-        // string Passthrough { get; set; }
-        // string PaymentMethod { get; set; }
-        // string PaymentTax { get; set; }
-        // string ProductId { get; set; }
-        // string ProductName { get; set; }
-        // string Quantity { get; set; }
-        // string ReceiptUrl { get; set; }
-        // string SaleGross { get; set; }
-        // string UsedPriceOverride { get; set; }
-        // string PSignature { get; set; }
+        public string alert_name { get; set; }
+        public string balance_currency { get; set; }
+        public string balance_earnings { get; set; }
+        public string balance_fee { get; set; }
+        public string balance_gross { get; set; }
+        public string balance_tax { get; set; }
+        public string checkout_id { get; set; }
+        public string country { get; set; }
+        public string coupon { get; set; }
+        public string currency { get; set; }
+        public string customer_name { get; set; }
+        public string earnings { get; set; }
+        public string email { get; set; }
+        public string event_time { get; set; }
+        public string fee { get; set; }
+        public string ip { get; set; }
+        public string marketing_consent { get; set; }
+        public string order_id { get; set; }
+        public string passthrough { get; set; }
+        public string payment_method { get; set; }
+        public string payment_tax { get; set; }
+        public string product_id { get; set; }
+        public string product_name { get; set; }
+        public string quantity { get; set; }
+        public string receipt_url { get; set; }
+        public string sale_gross { get; set; }
+        public string used_price_override { get; set; }
+        public string p_signature { get; set; }
     }
 
     [Route("api/[controller]")]
@@ -49,13 +48,9 @@ namespace integrationPaddle.Controllers
     {
         // POST api/values
         [HttpPost]
-        public IActionResult Post()
+        public IActionResult Post(PaddleBody response)
         {
-            // var teste =JsonConvert.DeserializeObject<PaddleBody>(Request.Body.ToString());
-            var meuObject = JsonConvert.DeserializeObject<object>(Request.Body.ToString());
-
-            var oMeuDeusPlease = (PaddleBody)meuObject;
-            return Ok(oMeuDeusPlease);
+            return Ok(response);
         }
             // var dict = Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(uri.Query);
             // responses.Add(dict);
