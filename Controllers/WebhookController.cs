@@ -4,8 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+// using Newtonsoft.Json;
+// using Newtonsoft.Json.Linq;
 
 namespace integrationPaddle.Controllers
 {
@@ -50,9 +50,9 @@ namespace integrationPaddle.Controllers
         [HttpPost]
         public IActionResult Post()
         {
-            var teste =JsonConvert.DeserializeObject<PaddleBody>(Request.Body.ToString());
+            // var teste =JsonConvert.DeserializeObject<PaddleBody>(Request.Body.ToString());
             
-            return Ok(teste);
+            return Ok(Request.Body);
         }
             // var dict = Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(uri.Query);
             // responses.Add(dict);
