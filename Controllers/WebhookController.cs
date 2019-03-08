@@ -12,6 +12,7 @@ namespace integrationPaddle.Controllers
     public class PaddleBody
     {
         string alert_name { get; set; }
+        string AlertName { get; set; }
         // string BalanceCurrency { get; set; }
         // string BalanceEarnings { get; set; }
         // string BalanceFee { get; set; }
@@ -48,10 +49,10 @@ namespace integrationPaddle.Controllers
         List<Object> responses { get; set; }
         // POST api/values
         [HttpPost]
-        public IActionResult Post()
+        public IActionResult Post([FromQuery] PaddleBody dict)
         {
-            // var dict = Request.Form.ToString();
-            var dict = Request.Body;
+            // var dict = Request.Body;
+            
             // responses.Add(dict);
             // SortedDictionary<string, dynamic> padStuff = new SortedDictionary<string, dynamic>();
             // JObject obj = JObject.Parse(dict);
