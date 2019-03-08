@@ -48,9 +48,10 @@ namespace integrationPaddle.Controllers
     {
         // POST api/values
         [HttpPost]
-        public IActionResult Post(PaddleBody response)
+        public IActionResult Post(object response)
         {
-            return Ok(response);
+
+            return Ok((PaddleBody)response);
         }
             // var dict = Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(uri.Query);
             // responses.Add(dict);
