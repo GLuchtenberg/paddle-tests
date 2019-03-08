@@ -11,8 +11,8 @@ namespace integrationPaddle.Controllers
 {
     public class PaddleBody
     {
-        // string alert_name { get; set; }
-        // string AlertName { get; set; }
+        string alert_name { get; set; }
+        string AlertName { get; set; }
         // string BalanceCurrency { get; set; }
         // string BalanceEarnings { get; set; }
         // string BalanceFee { get; set; }
@@ -46,22 +46,20 @@ namespace integrationPaddle.Controllers
     [ApiController]
     public class WebhookController : ControllerBase
     {
-        List<Object> responses { get; set; }
         // POST api/values
         [HttpPost]
         public IActionResult Post()
         {
-            var qs = Request.Body;
-            // var dict = FromQueryAttribute()
-            // var uri = new Uri(qs.ToString());
+            var teste =JsonConvert.DeserializeObject<PaddleBody>(Request.Body.ToString());
+            
+            return Ok(teste);
+        }
             // var dict = Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(uri.Query);
             // responses.Add(dict);
             // SortedDictionary<string, dynamic> padStuff = new SortedDictionary<string, dynamic>();
             // JObject obj = JObject.Parse(dict);
             // PaddleBody body = obj.ToObject<PaddleBody>();
             // var teste = ObjectFromDictionary<PaddleBody>(dict);
-            return Ok(qs);
-        }
         // var dict = Request.Form.ToDictionary(x => x.Key, x => x.Value.ToString());
         // private T ObjectFromDictionary<T>(IDictionary<string, string> dict)
         //     where T : class
