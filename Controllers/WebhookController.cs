@@ -13,7 +13,7 @@ namespace integrationPaddle.Controllers
     public class PaddleBody
     {
         string alert_name { get; set; }
-        string AlertName { get; set; }
+        // string AlertName { get; set; }
         // string BalanceCurrency { get; set; }
         // string BalanceEarnings { get; set; }
         // string BalanceFee { get; set; }
@@ -52,8 +52,10 @@ namespace integrationPaddle.Controllers
         public IActionResult Post()
         {
             // var teste =JsonConvert.DeserializeObject<PaddleBody>(Request.Body.ToString());
-            
-            return Ok(JsonConvert.DeserializeObject<object>(Request.Body.ToString()));
+            var meuObject = JsonConvert.DeserializeObject<object>(Request.Body.ToString());
+
+            var meuOvo = JsonConvert.DeserializeObject<PaddleBody>(meuObject.ToString());
+            return Ok(meuOvo);
         }
             // var dict = Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(uri.Query);
             // responses.Add(dict);
