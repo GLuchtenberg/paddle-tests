@@ -11,8 +11,8 @@ namespace integrationPaddle.Controllers
 {
     public class PaddleBody
     {
-        string alert_name { get; set; }
-        string AlertName { get; set; }
+        // string alert_name { get; set; }
+        // string AlertName { get; set; }
         // string BalanceCurrency { get; set; }
         // string BalanceEarnings { get; set; }
         // string BalanceFee { get; set; }
@@ -49,10 +49,11 @@ namespace integrationPaddle.Controllers
         List<Object> responses { get; set; }
         // POST api/values
         [HttpPost]
-        public IActionResult Post([FromQuery] PaddleBody dict)
+        public IActionResult Post()
         {
-            // var dict = Request.Body;
-            
+            var qs = Request.Body;
+            var uri = new Uri(qs.ToString());
+            var dict = Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(uri.Query);
             // responses.Add(dict);
             // SortedDictionary<string, dynamic> padStuff = new SortedDictionary<string, dynamic>();
             // JObject obj = JObject.Parse(dict);
