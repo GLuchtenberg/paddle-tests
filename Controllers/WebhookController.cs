@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 // using Newtonsoft.Json;
 // using Newtonsoft.Json.Linq;
 
@@ -52,7 +53,7 @@ namespace integrationPaddle.Controllers
         {
             // var teste =JsonConvert.DeserializeObject<PaddleBody>(Request.Body.ToString());
             
-            return Ok(Request.Body);
+            return Ok(JsonConvert.DeserializeObject<object>(Request.Body.ToString()));
         }
             // var dict = Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(uri.Query);
             // responses.Add(dict);
