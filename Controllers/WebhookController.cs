@@ -52,14 +52,15 @@ namespace integrationPaddle.Controllers
         public IActionResult Post()
         {
             var qs = Request.Body;
-            var uri = new Uri(qs.ToString());
+            // var dict = FromQueryAttribute()
+            // var uri = new Uri(qs.ToString());
             // var dict = Microsoft.AspNetCore.WebUtilities.QueryHelpers.ParseQuery(uri.Query);
             // responses.Add(dict);
             // SortedDictionary<string, dynamic> padStuff = new SortedDictionary<string, dynamic>();
             // JObject obj = JObject.Parse(dict);
             // PaddleBody body = obj.ToObject<PaddleBody>();
             // var teste = ObjectFromDictionary<PaddleBody>(dict);
-            return Ok(uri);
+            return Ok(qs);
         }
         // var dict = Request.Form.ToDictionary(x => x.Key, x => x.Value.ToString());
         // private T ObjectFromDictionary<T>(IDictionary<string, string> dict)
