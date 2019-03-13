@@ -21,8 +21,8 @@ namespace integrationPaddle.Controllers
             var values = Request.Form.Select(v => v).ToList();
             var paddle = new Paddle(values);
             PaddleAction action = PaddleActionFactory.Create(paddle);
-            action.resolve();
-            return Ok(action.resolve());
+            action.Resolve();
+            return Ok(action.Resolve());
         }
     }
 }

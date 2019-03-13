@@ -9,6 +9,7 @@ namespace integrationPaddle.PaddleIntegration
         public Paddle(IList<KeyValuePair<string, Microsoft.Extensions.Primitives.StringValues>> values)
         {
             alert_name = values.Where(o => o.Key == "alert_name").Select(o => o.Value).First();
+            email = values.Where(o => o.Key == "email").Select(o => o.Value).FirstOrDefault();
             balance_currency = values.Where(o => o.Key == "balance_currency").Select(o => o.Value).FirstOrDefault();
             balance_earnings = values.Where(o => o.Key == "balance_earnings").Select(o => o.Value).FirstOrDefault();
             balance_fee = values.Where(o => o.Key == "balance_fee").Select(o => o.Value).FirstOrDefault();
@@ -20,7 +21,6 @@ namespace integrationPaddle.PaddleIntegration
             currency = values.Where(o => o.Key == "currency").Select(o => o.Value).FirstOrDefault();
             customer_name = values.Where(o => o.Key == "customer_name").Select(o => o.Value).FirstOrDefault();
             earnings = values.Where(o => o.Key == "earnings").Select(o => o.Value).FirstOrDefault();
-            email = values.Where(o => o.Key == "email").Select(o => o.Value).FirstOrDefault();
             event_time = values.Where(o => o.Key == "event_time").Select(o => o.Value).FirstOrDefault();
             fee = values.Where(o => o.Key == "fee").Select(o => o.Value).FirstOrDefault();
             ip = values.Where(o => o.Key == "ip").Select(o => o.Value).FirstOrDefault();

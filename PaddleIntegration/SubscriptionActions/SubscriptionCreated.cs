@@ -9,7 +9,7 @@ namespace integrationPaddle.PaddleIntegration
         {
             Paddle = paddle;
         }
-        public string resolve()
+        public string Resolve()
         {
             return "SubscriptionCreated";
         }
